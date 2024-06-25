@@ -1,6 +1,11 @@
+
+let rows = prompt("How many rows/columns", 0);
+console.log(rows);
+
+let columns = rows;
+
 let GRIDSIZE = 600;
-let rows = 16;
-let columns = 16;
+
 
 let container = document.getElementById('container');
 container.style.height = `${GRIDSIZE}px`;
@@ -23,5 +28,7 @@ function createGrid(){
         gridcell.addEventListener('mouseover', changeToBlack);
     }
 }
+
+
 
 createGrid();
