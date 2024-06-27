@@ -21,42 +21,51 @@ function createGrid(){
         gridcell.classList.add("cell");
 
         container.append(gridcell);
-
-        gridcell.addEventListener('mouseover', resetBoard);
     }
 }
 
 function resetBoard(){
-
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
-        cell.style.backgroundColor = 'pink'; // Reset to original color (default background color)
+        cell.style.backgroundColor = 'white';
     });
  }
  
 function changeToBlack(){
-    this.style.backgroundColor = 'black';
+    const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
+            cell.addEventListener('mouseover', function() {
+                this.style.backgroundColor = 'black';
+            });
+        });
 }
 
 function changeToRainbow(){
-let valRed = Math.random() * 255;
-let valBlue = Math.random() * 255;
-let valGreen = Math.random() * 255;
 
-this.style.backgroundColor = `rgb(${valRed} ${valBlue} ${valGreen})`;
+    const cells = document.querySelectorAll('.cell');
+
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', function() {
+            let valRed = Math.random() * 255;
+            let valBlue = Math.random() * 255;
+            let valGreen = Math.random() * 255;
+        
+            this.style.backgroundColor = `rgb(${valRed} ${valBlue} ${valGreen})`;
+        })
+    })
 }
 
 function eraser(){
-this.style.backgroundColor = 'pink';
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
 
+            cell.addEventListener('mouseover', function(){
+            this.style.backgroundColor = 'white';
+            
+        })
+        }
+    )
 }
-
-function resetBoard(){
-createGrid();
-
-}
-
-
 
 
 createGrid();
